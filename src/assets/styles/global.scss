@@ -1,0 +1,18 @@
+@use './config' as *;
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
