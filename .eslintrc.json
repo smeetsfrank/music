@@ -28,6 +28,7 @@
         "@typescript-eslint/no-shadow": ["error"],
         "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
         "react/prop-types": "off",
+        "no-param-reassign": [2, { "props": false }],
         "import/extensions": [
             "error",
             "ignorePackages",
