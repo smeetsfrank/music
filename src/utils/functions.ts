@@ -10,7 +10,6 @@ export function getParamValues(url: string): Props {
     .split('&')
     .reduce((prev: any, curr: any) => {
       const [title, value] = curr.split('=');
-      // eslint-disable-next-line no-param-reassign
       prev[title] = value;
       return prev;
     }, {});
@@ -31,10 +30,16 @@ export async function getUserData(token: string): Promise<any> {
   }
 }
 
-export async function getUserAlbums(token: string): Promise<any> {
+export async function fetchSpotifyData(
+  token: string,
+  searchTerm: string,
+  filter: string[],
+): Promise<any> {
   try {
+    const limit = 50;
+    const filters = filter.toString().replace(/\s/g, '');
     const response = await axios({
-      url: 'https://api.spotify.com/v1/me/albums',
+      url: `https://api.spotify.com/v1/search?q=${searchTerm}&type=${filters}&limit=${limit}`,
       headers: {
         Authorization: `Bearer ${token}`,
       },
