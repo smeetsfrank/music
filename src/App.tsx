@@ -1,14 +1,17 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import type { RootState } from './store/store';
+
 import './App.module.scss';
 import Login from './api/spotify/Login';
-import Navigation from './components/Navigation/Navigation';
+import Dashboard from './components/Dashboard';
 
-const App: React.FC = () => (
-  <div className="App">
-    Ello!
-    <Navigation />
-    <Login />
-  </div>
-);
+const App: React.FC = () => {
+  const userCtx = useSelector((state: RootState) => state.user);
+
+  return (
+    <div className="App">{userCtx.authorized ? <Dashboard /> : <Login />}</div>
+  );
+};
 
 export default App;
