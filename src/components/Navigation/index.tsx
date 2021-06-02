@@ -2,7 +2,7 @@ import React from 'react';
 // eslint-disable-next-line object-curly-newline
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import type { AppDispatch } from '../../store/store';
+import { AppDispatch } from '../../store/store';
 import { searchAction } from '../../store/searchSlice';
 
 import Albums from '../../pages/Albums';
