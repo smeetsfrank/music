@@ -1,11 +1,15 @@
 import React, { useRef } from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../store/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../../store/store';
+import { albumAction } from '../../store/albumSlice';
+
 import { fetchSpotifyData } from '../../utils/functions';
 
 const Search: React.FC = () => {
   const searchCtx = useSelector((state: RootState) => state.search);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  const dispatch = useDispatch<AppDispatch>();
 
   const searchHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -19,14 +23,19 @@ const Search: React.FC = () => {
       searchTerm,
       searchCtx.filter,
     );
-    console.log(response);
+    const { albums, artists, playlists } = response;
+
+    dispatch(albumAction.setAlbums(albums));
   };
 
   return (
-    <form onSubmit={searchHandler}>
-      <input type="search" ref={inputRef} />
-      <button type="submit">Search</button>
-    </form>
+    <>
+      <form onSubmit={searchHandler}>
+        <input type="search" ref={inputRef} />
+        <button type="submit">Search</button>
+      </form>
+      <h2>Results</h2>
+    </>
   );
 };
 export default Search;
