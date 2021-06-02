@@ -7,7 +7,7 @@ const Search: React.FC = () => {
   const searchCtx = useSelector((state: RootState) => state.search);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const getAlbumHandler = async (e: React.FormEvent<HTMLFormElement>) => {
+  const searchHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!inputRef.current?.value) {
       alert('please enter a valid value');
@@ -23,7 +23,7 @@ const Search: React.FC = () => {
   };
 
   return (
-    <form onSubmit={getAlbumHandler}>
+    <form onSubmit={searchHandler}>
       <input type="search" ref={inputRef} />
       <button type="submit">Search</button>
     </form>
