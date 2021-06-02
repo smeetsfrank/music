@@ -1,8 +1,5 @@
 import React from 'react';
 
-const Playlists: React.FC = () => {
-  console.log('Playlists');
-  return <h2>Playlists</h2>;
-};
+const Playlists: React.FC = () => <h2>Playlists</h2>;
 
 export default Playlists;
