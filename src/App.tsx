@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import type { RootState } from './store/store';
 
 import './App.module.scss';
-import Login from './api/spotify/Login';
+import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 
 const App: React.FC = () => {

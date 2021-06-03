@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../store/store';
 import { albumAction } from '../../store/albumSlice';
 
-import { fetchSpotifyData } from '../../utils/functions';
+import { fetchSpotifyData } from '../../api/spotify';
 
 const Search: React.FC = () => {
-  const searchCtx = useSelector((state: RootState) => state.search);
+  const appState = useSelector((state: RootState) => state);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const dispatch = useDispatch<AppDispatch>();
@@ -19,9 +19,9 @@ const Search: React.FC = () => {
     }
     const searchTerm = inputRef.current.value;
     const response = await fetchSpotifyData(
-      localStorage.getItem('access_token')!,
+      appState.user.token!,
       searchTerm,
-      searchCtx.filter,
+      appState.search.filter,
     );
     const { albums, artists, playlists } = response;
 
