@@ -1,16 +1,18 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import type { RootState } from './store/store';
+import { RootState } from './store/store';
 
 import './App.module.scss';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 
 const App: React.FC = () => {
-  const userCtx = useSelector((state: RootState) => state.user);
+  const appState = useSelector((state: RootState) => state);
 
   return (
-    <div className="App">{userCtx.authorized ? <Dashboard /> : <Login />}</div>
+    <div className="App">
+      {appState.user.authorized ? <Dashboard /> : <Login />}
+    </div>
   );
 };
 
