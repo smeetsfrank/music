@@ -1,8 +1,8 @@
 import React from 'react';
 // eslint-disable-next-line object-curly-newline
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { AppDispatch } from '../../store/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../../store/store';
 import { searchAction } from '../../store/searchSlice';
 
 import Albums from '../../pages/Albums';
@@ -12,6 +12,7 @@ import Personal from '../../pages/Personal';
 
 const Navigation: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
+  const appState = useSelector((state: RootState) => state);
 
   const setFilter = (e: React.MouseEvent<HTMLAnchorElement>) => {
     const { id } = e.currentTarget;
@@ -31,13 +32,11 @@ const Navigation: React.FC = () => {
           <Link to="/playlists" onClick={setFilter} id="playlist">
             Playlists
           </Link>
-          <Link to="/personal">Personal</Link>
-          <li>3</li>
         </ul>
       </nav>
       <Switch>
         <Route path="/albums">
-          <Albums />
+          <Albums albums={appState.album.albums} />
         </Route>
         <Route path="/artists">
           <Artists />
