@@ -12,7 +12,23 @@ select {
     font: inherit;
 }
 
+button {
+    border: none;
+    background-color: transparent;
+    font-family: inherit;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    border-radius: 2rem;
+}
+
 body {
     margin: 0;
     padding: 0;
+}
+
+h1 {
+    font-family: $heading;
+    font-weight: weight-700;
+    color: $white;
+    font-size: 3rem;
 }
