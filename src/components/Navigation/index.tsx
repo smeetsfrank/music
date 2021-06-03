@@ -39,10 +39,10 @@ const Navigation: React.FC = () => {
           <Albums albums={appState.album.albums} />
         </Route>
         <Route path="/artists">
-          <Artists />
+          <Artists artists={appState.artist.artists} />
         </Route>
         <Route path="/playlists">
-          <Playlists />
+          <Playlists playlists={appState.playlist.playlists} />
         </Route>
         <Route path="/personal">
           <Personal />

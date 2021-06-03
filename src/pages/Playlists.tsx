@@ -1,5 +1,24 @@
 import React from 'react';
+import PlaylistCard from '../components/Playlists/PlaylistCard';
 
-const Playlists: React.FC = () => <h2>Playlists</h2>;
+type Props = {
+  playlists: any;
+};
 
-export default Playlists;
+const Playlist: React.FC<Props> = ({ playlists }) => {
+  console.log(playlists);
+  return (
+    <>
+      <h2>Playlists</h2>
+      {playlists.map((playlist: any) => (
+        <PlaylistCard
+          key={playlist.id}
+          playlist={playlist.name}
+          image={playlist.images[0]?.url}
+        />
+      ))}
+    </>
+  );
+};
+
+export default Playlist;
