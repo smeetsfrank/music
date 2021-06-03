@@ -2,6 +2,8 @@ import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../store/store';
 import { albumAction } from '../../store/albumSlice';
+import { artistAction } from '../../store/artistSlice';
+import { playlistAction } from '../../store/playlistSlice';
 
 import { fetchSpotifyData } from '../../api/spotify';
 
@@ -18,24 +20,19 @@ const Search: React.FC = () => {
       return;
     }
     const searchTerm = inputRef.current.value;
-    const response = await fetchSpotifyData(
-      appState.user.token!,
-      searchTerm,
-      appState.search.filter,
-    );
+    const response = await fetchSpotifyData(appState.user.token!, searchTerm);
     const { albums, artists, playlists } = response;
 
     dispatch(albumAction.setAlbums(albums));
+    dispatch(artistAction.setArtists(artists));
+    dispatch(playlistAction.setPlaylists(playlists));
   };
 
   return (
-    <>
-      <form onSubmit={searchHandler}>
-        <input type="search" ref={inputRef} />
-        <button type="submit">Search</button>
-      </form>
-      <h2>Results</h2>
-    </>
+    <form onSubmit={searchHandler}>
+      <input type="search" ref={inputRef} />
+      <button type="submit">Search</button>
+    </form>
   );
 };
 export default Search;

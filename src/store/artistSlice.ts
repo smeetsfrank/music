@@ -8,7 +8,7 @@ const artistSlice = createSlice({
   name: 'artist',
   initialState,
   reducers: {
-    setArtist(state: any, action: any) {
+    setArtists(state: any, action: any) {
       state.artists = action.payload.items;
     },
   },
