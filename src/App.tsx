@@ -1,3 +1,4 @@
+/* eslint-disable operator-linebreak */
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from './store/store';
@@ -22,7 +23,10 @@ const App: React.FC = () => {
   return (
     <div
       className={`${classes.wrapper} ${
-        appState.user.authorized && classes.split
+        (appState.album.albums.length ||
+          appState.artist.artists.length ||
+          appState.playlist.playlists.length) !== 0 &&
+        classes['contains-results']
       }`}
     >
       <div className={classes['left-panel']}>
