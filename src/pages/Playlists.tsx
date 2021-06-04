@@ -13,7 +13,7 @@ const Playlist: React.FC<Props> = ({ playlists }) => {
         <Card
           key={playlist.id}
           name={playlist.name}
-          image={playlist.images[0]?.url}
+          url={playlist.images[0]?.url}
           externalUrl={playlist.external_urls?.spotify}
         />
       ))}

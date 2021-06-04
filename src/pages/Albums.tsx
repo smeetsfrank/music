@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Card from '../components/UI/Card';
 
 type Props = {
@@ -12,7 +13,7 @@ const Albums: React.FC<Props> = ({ albums }) => (
         key={album.id}
         artists={album.artists}
         name={album.name}
-        image={album.images[0]?.url}
+        url={album.images[0]?.url}
         externalUrl={album.external_urls?.spotify}
       />
     ))}

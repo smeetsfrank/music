@@ -24,7 +24,7 @@ const Dashboard: React.FC = () => {
               key={album.id}
               artists={album.artists}
               name={album.name}
-              image={album.images[0]?.url}
+              url={album.images[0]?.url}
               externalUrl={album.external_urls?.spotify}
             />
           ))}
@@ -34,7 +34,7 @@ const Dashboard: React.FC = () => {
             <Card
               key={artist.id}
               name={artist.name}
-              image={artist.images[0]?.url}
+              url={artist.images[0]?.url}
               externalUrl={artist.external_urls?.spotify}
             />
           ))}
@@ -44,7 +44,7 @@ const Dashboard: React.FC = () => {
             <Card
               key={playlist.id}
               name={playlist.name}
-              image={playlist.images[0]?.url}
+              url={playlist.images[0]?.url}
               externalUrl={playlist.external_urls?.spotify}
             />
           ))}

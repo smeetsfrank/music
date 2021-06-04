@@ -11,7 +11,7 @@ const Artist: React.FC<Props> = ({ artists }) => (
       <Card
         key={artist.id}
         name={artist.name}
-        image={artist.images[0]?.url}
+        url={artist.images[0]?.url}
         externalUrl={artist.external_urls?.spotify}
       />
     ))}
