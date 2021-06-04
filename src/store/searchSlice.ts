@@ -5,7 +5,7 @@ interface searchProps {
 }
 
 const initialState: searchProps = {
-  filter: ['album, artist, playlist'],
+  filter: ['album', 'artist', 'playlist'],
 };
 
 const searchSlice = createSlice({

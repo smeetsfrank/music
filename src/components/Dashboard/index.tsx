@@ -16,7 +16,9 @@ const Dashboard: React.FC = () => {
         {(appState.album.albums.length ||
           appState.artist.artists.length ||
           appState.playlist.playlists.length) !== 0 && <Navigation />}
-        {appState.album.albums &&
+
+        {appState.search.filter.includes('album') &&
+          appState.album.albums &&
           appState.album.albums.map((album: any) => (
             <Card
               key={album.id}
@@ -26,7 +28,8 @@ const Dashboard: React.FC = () => {
               externalUrl={album.external_urls?.spotify}
             />
           ))}
-        {appState.artist.artists &&
+        {appState.search.filter.includes('artist') &&
+          appState.artist.artists &&
           appState.artist.artists.map((artist: any) => (
             <Card
               key={artist.id}
@@ -35,7 +38,8 @@ const Dashboard: React.FC = () => {
               externalUrl={artist.external_urls?.spotify}
             />
           ))}
-        {appState.playlist.playlists &&
+        {appState.search.filter.includes('playlist') &&
+          appState.playlist.playlists &&
           appState.playlist.playlists.map((playlist: any) => (
             <Card
               key={playlist.id}
