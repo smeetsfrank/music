@@ -20,14 +20,19 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className={classes.wrapper}>
+    <div
+      className={`${classes.wrapper} ${
+        appState.user.authorized && classes.split
+      }`}
+    >
       <div className={classes['left-panel']}>
         <MainImage url={AppImage} />
         <h1>Music App</h1>
+        {!appState.user.authorized && <Login />}
         {appState.user.authorized && <Search />}
       </div>
       <div className={classes['right-panel']}>
-        {appState.user.authorized ? <Dashboard /> : <Login />}
+        {appState.user.authorized && <Dashboard />}
       </div>
     </div>
   );

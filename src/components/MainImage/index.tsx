@@ -8,7 +8,7 @@ type Props = {
 const MainImage: React.FC<Props> = ({ url }) => (
   <>
     <img src={url} alt="UnSlash" />
-    <svg>
+    {/* <svg className="image-filter">
       <filter id="transmissionerror">
         <feColorMatrix
           type="saturate"
@@ -73,7 +73,7 @@ const MainImage: React.FC<Props> = ({ url }) => (
           result="displacementMap"
         />
       </filter>
-    </svg>
+    </svg> */}
   </>
 );
 

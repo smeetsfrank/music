@@ -34,7 +34,11 @@ const Search: React.FC = () => {
 
   return (
     <form className={classes.search} onSubmit={searchHandler}>
-      <input type="search" ref={inputRef} />
+      <input
+        type="search"
+        ref={inputRef}
+        placeholder="Search for albums, artists or playlists"
+      />
       <button type="submit">
         <FontAwesomeIcon icon={faSearch} color="white" />
       </button>
