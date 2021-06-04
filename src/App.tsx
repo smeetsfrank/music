@@ -4,7 +4,9 @@ import { RootState } from './store/store';
 
 import classes from './App.module.scss';
 import Login from './components/Login';
+import Search from './components/Search';
 import Dashboard from './components/Dashboard';
+import MainImage from './components/MainImage';
 
 // import fetchImage from './api/unsplash';
 import AppImage from './assets/images/spencer-imbrock-unsplash.jpg';
@@ -20,8 +22,9 @@ const App: React.FC = () => {
   return (
     <div className={classes.wrapper}>
       <div className={classes['left-panel']}>
-        <img src={AppImage} alt="UnSlash" />
+        <MainImage url={AppImage} />
         <h1>Music App</h1>
+        {appState.user.authorized && <Search />}
       </div>
       <div className={classes['right-panel']}>
         {appState.user.authorized ? <Dashboard /> : <Login />}
