@@ -1,5 +1,5 @@
 import React from 'react';
-import PlaylistCard from '../components/Playlists/PlaylistCard';
+import Card from '../components/UI/Card';
 
 type Props = {
   playlists: any;
@@ -9,12 +9,12 @@ const Playlist: React.FC<Props> = ({ playlists }) => {
   console.log(playlists);
   return (
     <>
-      <h2>Playlists</h2>
       {playlists.map((playlist: any) => (
-        <PlaylistCard
+        <Card
           key={playlist.id}
-          playlist={playlist.name}
+          name={playlist.name}
           image={playlist.images[0]?.url}
+          externalUrl={playlist.external_urls?.spotify}
         />
       ))}
     </>

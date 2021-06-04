@@ -10,6 +10,8 @@ import Artists from '../../pages/Artists';
 import Playlists from '../../pages/Playlists';
 import Personal from '../../pages/Personal';
 
+import classes from './index.module.scss';
+
 const Navigation: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const appState = useSelector((state: RootState) => state);
@@ -21,7 +23,7 @@ const Navigation: React.FC = () => {
 
   return (
     <Router>
-      <nav>
+      <nav className={classes.filter}>
         <ul>
           <Link to="/albums" onClick={setFilter} id="album">
             Albums

@@ -1,5 +1,5 @@
 import React from 'react';
-import AlbumCard from '../components/Albums/AlbumCard';
+import Card from '../components/UI/Card';
 
 type Props = {
   albums: any;
@@ -7,13 +7,13 @@ type Props = {
 
 const Albums: React.FC<Props> = ({ albums }) => (
   <>
-    <h2>Albums</h2>
     {albums.map((album: any) => (
-      <AlbumCard
+      <Card
         key={album.id}
         artists={album.artists}
-        album={album.name}
+        name={album.name}
         image={album.images[0]?.url}
+        externalUrl={album.external_urls?.spotify}
       />
     ))}
   </>
