@@ -16,3 +16,9 @@ img:nth-child(1) {
 //     filter: grayscale(100%) contrast(1000%);
 //     mix-blend-mode: multiply;
 // }
+
+svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
