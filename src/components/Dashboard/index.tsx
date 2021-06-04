@@ -2,7 +2,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Navigation from '../Navigation';
-import Search from '../Search';
 
 import { RootState } from '../../store/store';
 
@@ -14,7 +13,6 @@ const Dashboard: React.FC = () => {
   return (
     <>
       <h2>Dashboard</h2>
-      <Search />
       <Navigation />
       {appState.album.albums &&
         appState.album.albums.map((album: any) => (

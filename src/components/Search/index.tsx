@@ -1,11 +1,15 @@
 import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { AppDispatch, RootState } from '../../store/store';
 import { albumAction } from '../../store/albumSlice';
 import { artistAction } from '../../store/artistSlice';
 import { playlistAction } from '../../store/playlistSlice';
 
 import { fetchSpotifyData } from '../../api/spotify';
+
+import classes from './index.module.scss';
 
 const Search: React.FC = () => {
   const appState = useSelector((state: RootState) => state);
@@ -29,9 +33,11 @@ const Search: React.FC = () => {
   };
 
   return (
-    <form onSubmit={searchHandler}>
+    <form className={classes.search} onSubmit={searchHandler}>
       <input type="search" ref={inputRef} />
-      <button type="submit">Search</button>
+      <button type="submit">
+        <FontAwesomeIcon icon={faSearch} color="white" />
+      </button>
     </form>
   );
 };

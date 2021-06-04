@@ -5,6 +5,14 @@
     font-family: $button-text;
     font-size: 1rem;
     font-weight: $weight-700;
-    color: $dark-red;
-    background: $white;
+    color: $white;
+    border: 2px solid $white;
+    transition: ease-out 0.2s;
+
+    &:hover {
+        color: $dark-red;
+        background: $white;
+        font-size: 1.1rem;
+        padding: 1.1rem 2.1rem;
+    }
 }
