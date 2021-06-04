@@ -1,6 +1,11 @@
 import React from 'react';
 // eslint-disable-next-line object-curly-newline
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  NavLink,
+} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../store/store';
 import { searchAction } from '../../store/searchSlice';
@@ -25,15 +30,30 @@ const Navigation: React.FC = () => {
     <Router>
       <nav className={classes.filter}>
         <ul>
-          <Link to="/albums" onClick={setFilter} id="album">
+          <NavLink
+            to="/albums"
+            onClick={setFilter}
+            id="album"
+            activeClassName={classes.active}
+          >
             Albums
-          </Link>
-          <Link to="/artists" onClick={setFilter} id="artist">
+          </NavLink>
+          <NavLink
+            to="/artists"
+            onClick={setFilter}
+            id="artist"
+            activeClassName={classes.active}
+          >
             Artists
-          </Link>
-          <Link to="/playlists" onClick={setFilter} id="playlist">
+          </NavLink>
+          <NavLink
+            to="/playlists"
+            onClick={setFilter}
+            id="playlist"
+            activeClassName={classes.active}
+          >
             Playlists
-          </Link>
+          </NavLink>
         </ul>
       </nav>
       <Switch>
