@@ -6,7 +6,7 @@ const fetchImage = async () => {
   const response = await axios.get('https://api.unsplash.com/photos/random', {
     params: {
       client_id: CLIENT_ID,
-      query: 'edm',
+      query: 'music',
       orientation: 'portrait',
     },
   });
