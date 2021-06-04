@@ -1,33 +1,37 @@
 import React from 'react';
 
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeadphones } from '@fortawesome/free-solid-svg-icons';
 import classes from './AlbumCard.module.scss';
 
 type Props = {
   image: string;
   album: string;
   artists: any;
+  externalUrl?: string;
 };
 
-const AlbumCard: React.FC<Props> = ({ image, album, artists }) => (
-  <Card className={classes.root}>
-    <CardActionArea>
-      <CardMedia className={classes.media} image={image} title="Album cover" />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="h2">
-          {album}
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {artists.map((artist: any) => artist.name)}
-        </Typography>
-      </CardContent>
-    </CardActionArea>
-  </Card>
+// eslint-disable-next-line object-curly-newline
+const AlbumCard: React.FC<Props> = ({ image, album, artists, externalUrl }) => (
+  <div className={classes.card}>
+    <div className={classes.image}>
+      <img src={image} alt="album-cover" />
+    </div>
+    <div className={classes.info}>
+      <span className={classes.title}>{album}</span>
+      <span className={classes.artists}>
+        {artists.map((artist: any) => artist.name)}
+      </span>
+      <a
+        className={classes.link}
+        href={externalUrl}
+        target="_blank"
+        rel="noreferrer"
+      >
+        <FontAwesomeIcon icon={faHeadphones} color="white" />
+      </a>
+    </div>
+  </div>
 );
 
 export default AlbumCard;

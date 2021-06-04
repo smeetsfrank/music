@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.module.scss';
+import classes from './index.module.scss';
 
 type Props = {
   url: string | undefined;
@@ -7,8 +7,8 @@ type Props = {
 
 const MainImage: React.FC<Props> = ({ url }) => (
   <>
-    <img src={url} alt="UnSlash" />
-    {/* <svg className="image-filter">
+    <img className={classes['main-image']} src={url} alt="UnSlash" />
+    {/* <svg className={classes['image-filter']}>
       <filter id="transmissionerror">
         <feColorMatrix
           type="saturate"
