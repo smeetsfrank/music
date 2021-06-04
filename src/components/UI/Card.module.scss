@@ -8,9 +8,11 @@
     border-radius: 1rem;
     background-color: $white;
     overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     @media screen and (min-width: $screen-568) {
         width: 15rem;
-        height: 15 rem;
+        height: 15rem;
     }
     .image {
         display: flex;
@@ -51,6 +53,7 @@
             right: 1.5rem;
             bottom: 1.5rem;
             font-size: 1.5rem;
+            color: $dark-red;
             transition: ease-in-out 0.2s;
 
             &:hover {
@@ -59,8 +62,13 @@
         }
     }
 
-    &:hover .info {
-        transform: translateX(0);
-        background-color: rgba(51, 51, 51, 0.9);
+    &:hover {
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        transform: scale(1.05);
+
+        .info {
+            transform: translateX(0);
+            background-color: rgba(51, 51, 51, 0.9);
+        }
     }
 }
