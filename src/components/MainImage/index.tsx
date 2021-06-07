@@ -8,7 +8,7 @@ type Props = {
 const MainImage: React.FC<Props> = ({ url }) => (
   <>
     <img className={classes['main-image']} src={url} alt="UnSlash" />
-    {/* <svg className={classes['image-filter']}>
+    <svg className={classes['image-filter']}>
       <filter id="transmissionerror">
         <feColorMatrix
           type="saturate"
@@ -46,9 +46,9 @@ const MainImage: React.FC<Props> = ({ url }) => (
           />
           <animate
             attributeName="seed"
-            from="50"
-            to="60"
-            dur="5s"
+            from="60"
+            to="70"
+            dur="3s"
             repeatCount="indefinite"
           />
         </feTurbulence>
@@ -73,7 +73,7 @@ const MainImage: React.FC<Props> = ({ url }) => (
           result="displacementMap"
         />
       </filter>
-    </svg> */}
+    </svg>
   </>
 );
 
