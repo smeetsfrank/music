@@ -9,7 +9,6 @@ import { searchAction } from '../../store/searchSlice';
 import Albums from '../../pages/Albums';
 import Artists from '../../pages/Artists';
 import Playlists from '../../pages/Playlists';
-import Personal from '../../pages/Personal';
 
 import classes from './index.module.scss';
 
@@ -64,9 +63,6 @@ const Navigation: React.FC = () => {
           </Route>
           <Route path="/playlists">
             <Playlists playlists={appState.playlist.playlists} />
-          </Route>
-          <Route path="/personal">
-            <Personal />
           </Route>
         </Switch>
       </AnimatePresence>
