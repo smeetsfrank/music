@@ -1,12 +1,8 @@
 import React from 'react';
 // eslint-disable-next-line object-curly-newline
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  NavLink,
-} from 'react-router-dom';
+import { Switch, Route, NavLink, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { AnimatePresence } from 'framer-motion';
 import { AppDispatch, RootState } from '../../store/store';
 import { searchAction } from '../../store/searchSlice';
 
@@ -18,6 +14,7 @@ import Personal from '../../pages/Personal';
 import classes from './index.module.scss';
 
 const Navigation: React.FC = () => {
+  const location = useLocation();
   const dispatch = useDispatch<AppDispatch>();
   const appState = useSelector((state: RootState) => state);
 
@@ -27,7 +24,7 @@ const Navigation: React.FC = () => {
   };
 
   return (
-    <Router>
+    <>
       <nav className={classes.filter}>
         <ul>
           <NavLink
@@ -56,21 +53,23 @@ const Navigation: React.FC = () => {
           </NavLink>
         </ul>
       </nav>
-      <Switch>
-        <Route path="/albums">
-          <Albums albums={appState.album.albums} />
-        </Route>
-        <Route path="/artists">
-          <Artists artists={appState.artist.artists} />
-        </Route>
-        <Route path="/playlists">
-          <Playlists playlists={appState.playlist.playlists} />
-        </Route>
-        <Route path="/personal">
-          <Personal />
-        </Route>
-      </Switch>
-    </Router>
+      <AnimatePresence exitBeforeEnter>
+        <Switch location={location} key={location.key}>
+          <Route path="/albums">
+            <Albums albums={appState.album.albums} />
+          </Route>
+          <Route path="/artists">
+            <Artists artists={appState.artist.artists} />
+          </Route>
+          <Route path="/playlists">
+            <Playlists playlists={appState.playlist.playlists} />
+          </Route>
+          <Route path="/personal">
+            <Personal />
+          </Route>
+        </Switch>
+      </AnimatePresence>
+    </>
   );
 };
 

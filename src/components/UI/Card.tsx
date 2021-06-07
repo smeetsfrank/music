@@ -2,8 +2,11 @@ import React from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeadphones } from '@fortawesome/free-solid-svg-icons';
+import { motion } from 'framer-motion';
 import classes from './Card.module.scss';
 import fallbackImage from '../../assets/images/emily-morter-unsplash.jpg';
+
+import { cardVariants, cardHover } from '../../utils/framer/Card';
 
 type Props = {
   name: string;
@@ -16,7 +19,14 @@ type Props = {
 const Card: React.FC<Props> = ({ url, name, artists, externalUrl }) => {
   const image = url || fallbackImage;
   return (
-    <div className={classes.card}>
+    <motion.div
+      className={classes.card}
+      variants={cardVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      whileHover={cardHover}
+    >
       <div className={classes.image}>
         <img src={image} alt="cover" />
       </div>
@@ -38,7 +48,7 @@ const Card: React.FC<Props> = ({ url, name, artists, externalUrl }) => {
           </a>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
