@@ -5,10 +5,13 @@
     width: 100%;
     flex-wrap: wrap;
     justify-content: center;
+    @media screen and (min-width: $screen-568) {
+        gap: 1.75rem;
+    }
     @media screen and (min-width: $screen-768) {
         overflow-y: auto;
-        gap: 1.75rem;
         padding: 5rem 0 3rem 0;
         max-height: calc(100vh - 4rem);
+        width: 48vw;
     }
 }
