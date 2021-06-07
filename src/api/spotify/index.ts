@@ -27,7 +27,7 @@ export const fetchSpotifyData = async (
   searchTerm: string,
 ): Promise<any> => {
   try {
-    const limit = 5;
+    const limit = 12;
     const filters = 'album,artist,playlist';
     const response = await axios({
       url: `https://api.spotify.com/v1/search?q=${searchTerm}&type=${filters}&limit=${limit}`,
