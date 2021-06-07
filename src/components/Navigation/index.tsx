@@ -53,6 +53,7 @@ const Navigation: React.FC = () => {
           </NavLink>
         </ul>
       </nav>
+
       <AnimatePresence exitBeforeEnter>
         <Switch location={location} key={location.key}>
           <Route path="/albums">

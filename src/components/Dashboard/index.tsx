@@ -57,6 +57,7 @@ const Dashboard: React.FC = () => {
         <Router>
           <Navigation />
         </Router>
+
         {renderedAlbums && renderedAlbums}
         {renderedArtists && renderedArtists}
         {renderedPlaylists && renderedPlaylists}
