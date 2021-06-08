@@ -7,7 +7,7 @@ type Props = {
 
 const MainImage: React.FC<Props> = ({ url }) => (
   <>
-    <img className={classes['main-image']} src={url} alt="UnSlash" />
+    <img className={classes['main-image']} src={url} alt="UnSplash" />
     <svg className={classes['image-filter']}>
       <filter id="transmissionerror">
         <feColorMatrix
